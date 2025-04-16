@@ -113,30 +113,30 @@ body {
 
 /* Logout button styles */
 #logoutButton {
-  position: absolute; /* Allows positioning relative to the body */
-  top: 10px; /* Distance from the top */
-  right: 10px; /* Distance from the right */
-  background-color: #800080; /* Purple background */
-  color: white; /* White text */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 5px 10px; /* Smaller padding for compact size */
-  font-size: 14px; /* Smaller font size */
-  cursor: pointer; /* Pointer cursor on hover */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  position: absolute;
+  top: 10px; 
+  right: 10px; 
+  background-color: #800080; 
+  color: white; 
+  border: none;
+  border-radius: 5px; 
+  padding: 5px 10px; 
+  font-size: 14px; 
+  cursor: pointer; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transition: background-color 0.3s ease;
 }
 
 #logoutButton:hover {
-  background-color: #5a005a; /* Darker shade on hover */
+  background-color: #5a005a; 
 }
 
 @media (max-width: 768px) {
   #logoutButton {
-    font-size: 12px; /* Smaller font size for smaller screens */
-    padding: 4px 8px; /* Adjust padding */
-    top: 5px; /* Adjust distance from top */
-    right: 5px; /* Adjust distance from right */
+    font-size: 12px; 
+    padding: 4px 8px; 
+    top: 5px; 
+    right: 5px; 
   }
 }
 
