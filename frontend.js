@@ -79,14 +79,14 @@ async function loadEntries() {
 // Detail Entries
 function renderEntries(groupedEntries) {
   const entriesList = document.getElementById('entriesList');
-  entriesList.innerHTML = ''; // Clear existing entries
+  entriesList.innerHTML = ''; 
 
   for (const [date, entries] of Object.entries(groupedEntries)) {
     const dateContainer = document.createElement('div');
     dateContainer.classList.add('date-container');
 
     const dateHeading = document.createElement('h2');
-    dateHeading.textContent = date; // Display the formatted date
+    dateHeading.textContent = date; 
     dateHeading.classList.add('date-heading');
     dateContainer.appendChild(dateHeading);
 
@@ -134,7 +134,7 @@ document.getElementById('journalForm').addEventListener('submit', async (e) => {
 
     const data = await response.json();
     alert(data.message);
-    loadEntries(); // Reload entries after saving
+    loadEntries(); 
   } catch (error) {
     console.error('Error submitting entry:', error);
     alert(`Failed to save entry: ${error.message}`);
@@ -147,7 +147,7 @@ document.getElementById('logoutButton').addEventListener('click', () => {
   localStorage.removeItem('token');
   // Reset the UI
   alert('Logged out successfully.');
-  location.reload(); // Reload the page to reset forms and visibility
+  location.reload();
 });
 
 // Login Form
@@ -171,7 +171,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const data = await response.json();
     localStorage.setItem('token', data.token);
     alert('Login successful!');
-    showDashboard(); // This function hides the login/signup and shows the journal dashboard
+    showDashboard(); 
   } catch (error) {
     console.error('Login error:', error);
     alert(`Login failed: ${error.message}`);
