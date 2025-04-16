@@ -9,19 +9,16 @@ const JournalEntry = require('./models/JournalEntry');
 const app = express();
 const port = 3000;
 
-// Middleware
 app.use(express.json());
-app.use(express.static('public')); // Serve static files
+app.use(express.static('public')); 
 
 // MongoDB Connection
 mongoose.connect('mongodb+srv://harrylai126:qZBUNtyuvOsPlS2S@journalington.ez0rk.mongodb.net/?retryWrites=true&w=majority&appName=journalington')
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
-// Sentiment instance
 const sentiment = new Sentiment();
 
-// Authentication Middleware
 const authMiddleware = (req, res, next) => {
   const token = req.header('Authorization')?.split(' ')[1];
   if (!token) return res.status(401).json({ message: 'No token, authorization denied' });
@@ -104,7 +101,7 @@ app.post('/entries', authMiddleware, async (req, res) => {
 
   // Analyze sentiment for the text
   const sentimentResult = sentiment.analyze(text);
-  console.log('Sentiment analysis result:', sentimentResult); // Log sentiment analysis result
+  console.log('Sentiment analysis result:', sentimentResult); 
 
   try {
     // Create a new journal entry
@@ -117,7 +114,7 @@ app.post('/entries', authMiddleware, async (req, res) => {
 
     // Save the journal entry to the database
     const savedEntry = await newEntry.save();
-    console.log('Saved entry:', savedEntry); // Log saved entry
+    console.log('Saved entry:', savedEntry); 
 
     // Respond with success message and saved entry
     res.status(201).json({ message: 'Entry saved successfully!', entry: savedEntry });
@@ -133,7 +130,7 @@ app.get('/test-db', async (req, res) => {
     const testEntry = new JournalEntry({
       text: 'Test entry',
       sentiment: 1,
-      user: '648df29f8b647a001fbabe12', // Replace with a valid user ID
+      user: '648df29f8b647a001fbabe12', 
     });
     const savedEntry = await testEntry.save();
     res.json({ message: 'Test entry saved', entry: savedEntry });
@@ -143,8 +140,6 @@ app.get('/test-db', async (req, res) => {
   }
 });
 
-
-// Start the Server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
